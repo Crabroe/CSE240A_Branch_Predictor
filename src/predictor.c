@@ -81,7 +81,22 @@ void init_predictor() {
       break;
     
     case CUSTOM:
-
+      localHistoryTable = (uint32_t *)malloc((1 << pcIndexBits) * sizeof(uint32_t));
+      localBHT = (uint8_t *)malloc((1 << lhistoryBits) * sizeof(uint8_t));
+      globalBHT = (uint8_t *)malloc((1 << ghistoryBits) * sizeof(uint8_t));
+      choiceBHT = (uint8_t *)malloc((1 << ghistoryBits) * sizeof(uint8_t));
+      for (int i = 0; i < (1 << pcIndexBits); i++) {
+        localHistoryTable[i] = 0;
+      }
+      for (int i = 0; i < (1 << lhistoryBits); i++) {
+        localBHT[i] = WN;
+      }
+      for (int i = 0; i < (1 << ghistoryBits); i++) {
+        globalBHT[i] = WN;
+        choiceBHT[i] = WN;
+      }
+      ghistory = 0;
+      break;
     default:
       break;
   }
