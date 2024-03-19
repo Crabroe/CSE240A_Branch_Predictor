@@ -75,7 +75,7 @@ void init_predictor() {
       }
       for (int i = 0; i < (1 << ghistoryBits); i++) {
         globalBHT[i] = WN;
-        choiceBHT[i] = WT;
+        choiceBHT[i] = 2;
       }
       ghistory = 0;
       break;
@@ -93,7 +93,7 @@ void init_predictor() {
       }
       for (int i = 0; i < (1 << ghistoryBits); i++) {
         globalBHT[i] = WN;
-        choiceBHT[i] = WT;
+        choiceBHT[i] = 2;
       }
       ghistory = 0;
       break;
